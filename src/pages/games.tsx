@@ -5,7 +5,7 @@ function Games() {
   return (
     <main className="flex justify-center items-center mt-40 pb-10">
       <div>
-        <Input />
+        <Input onChange={() => {}} />
         <br />
         <p className="text-sm inline-block text-left mt-2 max-w-80 text-[#bbb]">
           Games shown on this website{" "}
