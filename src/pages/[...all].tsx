@@ -27,7 +27,8 @@ function All() {
               Page not found
             </h3>
             <p className="text-sm text-left mt-2 max-w-80 text-[#bbb]">
-              Sorry, Tha page was not found on server or you do not have access.
+              Sorry, That page was not found on server or you do not have
+              access.
             </p>
           </div>
         </main>
