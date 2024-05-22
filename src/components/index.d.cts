@@ -28,4 +28,12 @@ declare function Navbar(): JSX.Element;
 
 declare function Retro(): JSX.Element;
 
-export { Button, Card, Input, Loading, Navbar, Retro };
+declare const prep: {
+  id: string;
+  file: string;
+  type: "embed" | "flash";
+  title: string;
+  image: string;
+}[];
+
+export { Button, Card, Input, Loading, Navbar, Retro, prep };
