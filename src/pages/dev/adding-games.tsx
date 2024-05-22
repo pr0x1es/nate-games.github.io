@@ -5,8 +5,8 @@ function AddingGames() {
     <main className="flex justify-center items-center mt-40">
       <div>
         <h2 className="text-2xl mb-2 underline">Adding Games</h2>
-        <div className="text-left inline-block text-[#bbb] text-sm max-w-[42rem]">
-          <h3 className="text-lg">#1 Fork Repository</h3>
+        <div className="text-left inline-block text-[#bbb] text-sm max-w-[60vw] md:max-w-[40vw]">
+          <h3 className="text-lg text-white">Fork Repository</h3>
           <p>
             Fork the{" "}
             <a
@@ -17,11 +17,17 @@ function AddingGames() {
             </a>
             , You will eventually use this to send a pull request to add the
             game.
+            <br />
+            <br />
+            If you already have one forked use that one and sync the code to the
+            main branch.
           </p>
-          <h3 className="text-lg">#2 Image Conversion</h3>
+          <h3 className="text-lg text-white">Image Conversion</h3>
           <p>
             If your image is on an external domain we only accept
             play-lh.googleusercontent.com or raw.githubusercontent.com.
+            <br />
+            <br />
             Otherwise, Convert your game image to 240x240 pixels, you can use
             our <Link to="/dev/convert">Image Converter</Link>. In your forked
             repository upload the converted image to{" "}
@@ -30,28 +36,21 @@ function AddingGames() {
             </kbd>
             .
           </p>
-          <h3 className="text-lg">#3 Add it!</h3>
+          <h3 className="text-lg text-white">Add it!</h3>
           <p>
-            Since people just begging to add games such as Fortnite, or Roblox
-            you gotta do it yourself. Go to GitHub and edit{" "}
-            <kbd className="bg-[#070707]">/src/games.ts</kbd>{" "}
-            <a
-              href="https://github.com/nate-games/nate-games.github.io/edit/main/src/games.ts"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              open
-            </a>
-            . If you uploaded an image make sure to set the image property to{" "}
+            Go to the forked repository and edit{" "}
+            <kbd className="bg-[#070707]">/src/games.ts</kbd>. If you uploaded
+            an image make sure to set the image property to{" "}
             <kbd className="bg-[#070707]">
               /assets/img/&#123;GAME_ID&#125;.png
             </kbd>{" "}
             NOT{" "}
             <kbd className="bg-[#070707]">
               /public/assets/img/&#123;GAME_ID&#125;.png
-            </kbd>
+            </kbd>{" "}
+            because the path will change when the website is PUBLIC.
           </p>
-          <h3 className="text-lg">#4 Wait & Review</h3>
+          <h3 className="text-lg text-white">Wait & Review</h3>
           <p>
             Approved contributors will review your code and if its denied your
             pull request will be closed, this could be because the game was bad

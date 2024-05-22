@@ -1,4 +1,5 @@
 import { prep } from "@ns/components";
+
 interface GameType {
   id: string;
   file: string;
