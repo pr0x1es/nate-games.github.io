@@ -28,7 +28,7 @@ declare function Card({
   };
 }): JSX.Element;
 
-declare function Input({ onChange }: { onChange: () => void }): JSX.Element;
+declare function Input({ state }: { state: any }): JSX.Element;
 
 declare function Navbar(): JSX.Element;
 

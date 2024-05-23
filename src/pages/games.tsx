@@ -1,11 +1,28 @@
 import { Card, Input } from "@ns/package";
+import { useState, useEffect } from "react";
 import { games } from "../games";
 
 function Games() {
+  const [m, setM] = useState<any[]>(games);
+  const [s, setS] = useState<string>("");
+
+  useEffect(() => {
+    if (s.length > 0) {
+      const found = games.filter((game) => {
+        return s.toLowerCase() == ""
+          ? game
+          : game.title.toLowerCase().includes(s.toLowerCase());
+      });
+      setM(found);
+    } else {
+      setM(games);
+    }
+  }, [s]);
+
   return (
     <main className="flex justify-center items-center mt-40 pb-10">
       <div>
-        <Input onChange={() => {}} />
+        <Input state={setS} />
         <br />
         <p className="text-sm inline-block text-left mt-2 max-w-80 text-[#bbb]">
           Games shown on this website{" "}
@@ -13,7 +30,7 @@ function Games() {
           respective owners.
         </p>
         <div className="mt-2 flex justify-center items-center flex-wrap max-w-[80vw] gap-4">
-          {games.map((game) => {
+          {m.map((game) => {
             return <Card key={game.id} game={game} />;
           })}
         </div>
