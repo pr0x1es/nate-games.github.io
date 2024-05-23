@@ -1,4 +1,4 @@
-import { Card, Input } from "@ns/components";
+import { Card, Input } from "@ns/package";
 import { games } from "../games";
 
 function Games() {

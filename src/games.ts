@@ -1,4 +1,4 @@
-import { prep } from "@ns/components";
+import { prep } from "@ns/package";
 
 interface GameType {
   id: string;

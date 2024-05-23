@@ -7,16 +7,16 @@ import {
 import react from "@vitejs/plugin-react";
 import Pages from "vite-plugin-pages";
 import { defineConfig } from "vite";
-//import { games } from "./src/games";
+import { games } from "./src/games";
 
 let routeArray: Route[] = [];
 
-/*games.map((game) => {
+games.map((game) => {
   return routeArray.push({
     path: `/game/${game.id}`,
-    title: game.title,
+    title: `${game.title} | nate-games`,
   });
-});*/
+});
 
 const pages: Route[] = [
   {

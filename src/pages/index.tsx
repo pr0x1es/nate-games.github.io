@@ -1,4 +1,4 @@
-import { Retro } from "@ns/components";
+import { Retro } from "@ns/package";
 import { Link } from "react-router-dom";
 
 function Home() {

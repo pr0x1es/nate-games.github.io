@@ -1,5 +1,13 @@
 import { ReactNode, JSX } from 'react';
 
+declare const prep: {
+  id: string;
+  file: string;
+  type: "embed" | "flash";
+  title: string;
+  image: string;
+}[];
+
 declare function Button({
   children,
   className,
@@ -22,18 +30,8 @@ declare function Card({
 
 declare function Input({ onChange }: { onChange: () => void }): JSX.Element;
 
-declare function Loading(): JSX.Element;
-
 declare function Navbar(): JSX.Element;
 
 declare function Retro(): JSX.Element;
 
-declare const prep: {
-  id: string;
-  file: string;
-  type: "embed" | "flash";
-  title: string;
-  image: string;
-}[];
-
-export { Button, Card, Input, Loading, Navbar, Retro, prep };
+export { Button, Card, Input, Navbar, Retro, prep };
