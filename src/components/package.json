@@ -1,6 +1,5 @@
 {
   "name": "@ns/components",
-  "main": "./index.cjs",
-  "module": "./index.mjs",
-  "types": "./index.d.cts"
+  "main": "./index.mjs",
+  "types": "./index.d.ts"
 }

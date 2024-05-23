@@ -1,7 +1,9 @@
+import { MetadataProvider } from "vite-plugin-pages-metadata";
 import { BrowserRouter, useRoutes } from "react-router-dom";
 import { Loading, Navbar } from "@ns/components";
 import { createRoot } from "react-dom/client";
 import { StrictMode, Suspense } from "react";
+import { metadata } from "./metadata";
 import routes from "~react-pages";
 import "./index.css";
 
@@ -14,8 +16,10 @@ const app = createRoot(document.getElementById("root")!);
 app.render(
   <StrictMode>
     <BrowserRouter>
-      <Navbar />
-      <App />
+      <MetadataProvider metadata={metadata} routes={routes}>
+        <Navbar />
+        <App />
+      </MetadataProvider>
     </BrowserRouter>
   </StrictMode>
 );
