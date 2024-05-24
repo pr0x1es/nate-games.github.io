@@ -86,7 +86,7 @@ function Game() {
               </div>
             </div>
             <a
-              href="https://github.com/nate-games/nate-games.github.io/issues"
+              href={`https://github.com/nate-games/nate-games.github.io/discussions/new?category=bug-report&title=${game.title} - id@${game.id}`}
               target="_blank"
             >
               <button className="cursor-pointer text-sm transition-all duration-75 bg-[#222] text-white px-4 py-2 rounded-md border-[#111] border-b-[6px] hover:bg-[#252525] hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[0px] active:translate-y-[2px]">
