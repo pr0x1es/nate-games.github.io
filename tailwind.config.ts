@@ -5,6 +5,7 @@ export default {
   theme: {
     fontFamily: {
       roboto: ["'Roboto'", "system-ui"],
+      urbanist: ["'Urbanist'", "system-ui"],
     },
     extend: {},
   },

@@ -1,12 +1,12 @@
 import { ReactNode, JSX } from 'react';
 
-declare const prep: {
+type GameType = {
   id: string;
   file: string;
   type: "embed" | "flash";
   title: string;
   image: string;
-}[];
+};
 
 declare function Button({
   children,
@@ -33,5 +33,7 @@ declare function Input({ state }: { state: any }): JSX.Element;
 declare function Navbar(): JSX.Element;
 
 declare function Retro(): JSX.Element;
+
+declare const prep: GameType[];
 
 export { Button, Card, Input, Navbar, Retro, prep };

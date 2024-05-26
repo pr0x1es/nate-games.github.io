@@ -7,11 +7,11 @@ import {
 import react from "@vitejs/plugin-react";
 import Pages from "vite-plugin-pages";
 import { defineConfig } from "vite";
-import { games } from "./src/games";
+import { np } from "@ns/package/np";
 
 let routeArray: Route[] = [];
 
-games.map((game) => {
+np.map((game: { id: string; title: string }) => {
   return routeArray.push({
     path: `/game/${game.id}`,
     title: `${game.title} | nate-games`,
@@ -34,17 +34,14 @@ const pages: Route[] = [
     ],
   },
   {
-    path: "/dev/adding-games",
-    title: "Adding Games | nate-games",
+    path: "/dev/",
+    title: "Developer | nate-games",
   },
   {
-    path: "/dev/convert",
-    title: "Image Converter | nate-games",
+    path: "/dev/get-started",
+    title: "Getting Started | nate-games",
   },
-  {
-    path: "about",
-    title: "About | nate-games",
-  },
+  { path: "dmca", title: "DMCA | nate-games" },
   { path: "games", title: "Games | nate-games" },
   { path: "*", title: "404" },
 ];
