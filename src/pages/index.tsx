@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 function Home() {
   return (
     <main>
-      <div className="pt-[15vh] px-6 relative flex justify-center items-center z-[1]">
-        <div>
+      <div className="absolute w-full h-full z-[1]">
+        <section className="h-full xl:h-[75%] w-full flex flex-col justify-center items-center">
           <p className="text-sm">Welcome back to,</p>
           <h2 className="text-white text-xl flex gap-1 items-end mb-2">
             <img src="/favicon.ico" className="h-7 w-7" />
@@ -20,7 +20,7 @@ function Home() {
               </svg>
             </button>
           </Link>
-        </div>
+        </section>
       </div>
       <Retro />
     </main>
