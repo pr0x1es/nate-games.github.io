@@ -2,7 +2,7 @@ function DMCA() {
   return (
     <main className="flex justify-center items-center mt-40">
       <div>
-        <h2 className="text-2xl font-urbanist">DMCA</h2>
+        <h2 className="text-2xl font-urbanist">Copyright</h2>
         <p className="text-sm text-left mt-2 max-w-[60vw] md:max-w-[40vw] xl:max-w-[30vw] text-[#bbb]">
           Under GPL-3.0 license we should get copyright notice, if you believe
           your game is on this site without permission, fill{" "}
