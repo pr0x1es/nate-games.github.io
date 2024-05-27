@@ -28,10 +28,16 @@ export const metadata = [
   { path: "game/stack", title: "Stack | nate-games" },
   { path: "game/stickman-hook", title: "Stickman Hook | nate-games" },
   { path: "game/fruit-ninja", title: "Fruit Ninja | nate-games" },
+  { path: "game/doodle-jump", title: "Doodle Jump | nate-games" },
   { path: "game/stair-race-3d", title: "Stair Race 3D | nate-games" },
   { path: "game/poor-eddie", title: "Poor Eddie | nate-games" },
   { path: "game/monkey-mart", title: "Monkey Mart | nate-games" },
+  { path: "game/retro-bowl", title: "Retro Bowl | nate-games" },
   { path: "game/om-nom-run", title: "Om Nom Run | nate-games" },
+  {
+    path: "game/friday-night-funkin",
+    title: "Friday Night Funkin' | nate-games",
+  },
   { path: "game/pac-man", title: "Pac-Man | nate-games" },
   { path: "game/ducklings-io", title: "Ducklings.io | nate-games" },
   {
