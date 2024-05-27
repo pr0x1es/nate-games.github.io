@@ -4,8 +4,8 @@ function DMCA() {
       <div>
         <h2 className="text-2xl font-urbanist">DMCA</h2>
         <p className="text-sm text-left mt-2 max-w-[60vw] md:max-w-[40vw] xl:max-w-[30vw] text-[#bbb]">
-          Unser the GPL-3.0 License legally we should get copyright notice if
-          you believe your game is on this site without your permission, fill{" "}
+          Under GPL-3.0 license we should get copyright notice, if you believe
+          your game is on this site without permission, fill{" "}
           <a href="https://forms.gle/4MESWLczq9dvSsvQ7" target="_blank">
             this form
           </a>{" "}
