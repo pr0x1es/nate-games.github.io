@@ -122,7 +122,7 @@ function Developer() {
               </h3>
               <p className="text-sm text-blue-200 font-urbanist">
                 Start by connecting to our Stripe app and payouts are made every
-                month on the 5th.
+                month.
               </p>
             </div>
           </section>
