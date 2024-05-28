@@ -23,9 +23,12 @@ const pages: Route[] = [
     path: "/",
     title: "nate-games",
     description:
-      "Your ultimate hub for unblocked games, and more! Immerse yourself in a world of gaming experiences - perfect for students & dedicated gamers!",
+      "The original website has returned, this is your ultimate hub for unblocked games, and more! Immerse yourself in a world of gaming experiences - perfect for students & dedicated gamers!",
     keywords: [
       "unblocked",
+      "proxy",
+      "vpn",
+      "unblocker",
       "unblxd",
       "games",
       "nate-games",

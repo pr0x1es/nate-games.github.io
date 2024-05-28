@@ -32,6 +32,7 @@ export const metadata = [
   { path: "game/stair-race-3d", title: "Stair Race 3D | nate-games" },
   { path: "game/poor-eddie", title: "Poor Eddie | nate-games" },
   { path: "game/monkey-mart", title: "Monkey Mart | nate-games" },
+  { path: "game/minecraft", title: "Minecraft | nate-games" },
   { path: "game/retro-bowl", title: "Retro Bowl | nate-games" },
   { path: "game/om-nom-run", title: "Om Nom Run | nate-games" },
   {
@@ -39,12 +40,15 @@ export const metadata = [
     title: "Friday Night Funkin' | nate-games",
   },
   { path: "game/pac-man", title: "Pac-Man | nate-games" },
+  { path: "game/drive-mad", title: "Drive Mad | nate-games" },
+  { path: "game/dumb-ways-to-die", title: "Dumb Ways to Die | nate-games" },
+  { path: "game/uno-online", title: "UNO Online! | nate-games" },
   { path: "game/ducklings-io", title: "Ducklings.io | nate-games" },
   {
     path: "/",
     title: "nate-games",
     description:
-      "Your ultimate hub for unblocked games, and more! Immerse yourself in a world of gaming experiences - perfect for students & dedicated gamers!",
+      "The original website has returned, this is your ultimate hub for unblocked games, and more! Immerse yourself in a world of gaming experiences - perfect for students & dedicated gamers!",
   },
   { path: "dev/", title: "Developer | nate-games" },
   { path: "dev/get-started", title: "Getting Started | nate-games" },
