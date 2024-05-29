@@ -29,6 +29,7 @@ export const metadata = [
   { path: "game/stickman-hook", title: "Stickman Hook | nate-games" },
   { path: "game/fruit-ninja", title: "Fruit Ninja | nate-games" },
   { path: "game/doodle-jump", title: "Doodle Jump | nate-games" },
+  { path: "game/stealth-master", title: "Stealth Master | nate-games" },
   { path: "game/stair-race-3d", title: "Stair Race 3D | nate-games" },
   { path: "game/poor-eddie", title: "Poor Eddie | nate-games" },
   { path: "game/monkey-mart", title: "Monkey Mart | nate-games" },
@@ -42,7 +43,7 @@ export const metadata = [
   { path: "game/pac-man", title: "Pac-Man | nate-games" },
   { path: "game/drive-mad", title: "Drive Mad | nate-games" },
   { path: "game/dumb-ways-to-die", title: "Dumb Ways to Die | nate-games" },
-  { path: "game/uno-online", title: "UNO Online! | nate-games" },
+  { path: "game/uno-online", title: "UNO! Online | nate-games" },
   { path: "game/ducklings-io", title: "Ducklings.io | nate-games" },
   {
     path: "/",
