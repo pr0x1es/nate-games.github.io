@@ -1,5 +1,3 @@
-export default unityFramework;
-
 function unityFramework(Module) {
   var Module = typeof Module !== "undefined" ? Module : {};
   function Pointer_stringify(s, len) {
