@@ -1,3 +1,5 @@
+export default unityFramework;
+
 function unityFramework(Module) {
   var Module = typeof Module !== "undefined" ? Module : {};
   function Pointer_stringify(s, len) {
@@ -18978,5 +18980,3 @@ function unityFramework(Module) {
   if (Module["noInitialRun"]) shouldRunNow = false;
   run();
 }
-
-export default unityFramework;
