@@ -35,6 +35,7 @@ export const metadata = [
   { path: "game/monkey-mart", title: "Monkey Mart | nate-games" },
   { path: "game/minecraft", title: "Minecraft | nate-games" },
   { path: "game/retro-bowl", title: "Retro Bowl | nate-games" },
+  { path: "game/cut-the-rope", title: "Cut the Rope | nate-games" },
   { path: "game/om-nom-run", title: "Om Nom Run | nate-games" },
   {
     path: "game/friday-night-funkin",
