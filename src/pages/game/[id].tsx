@@ -13,7 +13,14 @@ function Game() {
   useEffect(() => {
     const results = games.find((g) => g.id === id);
     if (results) {
-      setGame(results);
+      setGame({
+        ...results,
+        ...(import.meta.env.PROD == false &&
+        results.file.startsWith("/assets/games/") &&
+        results.file.endsWith("/")
+          ? { file: results.file + "index.html" }
+          : { file: results.file }),
+      });
     } else {
       setGame(null);
     }
