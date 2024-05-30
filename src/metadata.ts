@@ -42,6 +42,7 @@ export const metadata = [
     title: "Friday Night Funkin' | nate-games",
   },
   { path: "game/pac-man", title: "Pac-Man | nate-games" },
+  { path: "game/tall-man-run", title: "Tall Man Run | nate-games" },
   { path: "game/drive-mad", title: "Drive Mad | nate-games" },
   { path: "game/dumb-ways-to-die", title: "Dumb Ways to Die | nate-games" },
   { path: "game/uno-online", title: "UNO! Online | nate-games" },
