@@ -69,16 +69,12 @@
 
       loadingBar.style.display = "block";
 
-      const subZipStr = ".zip";
-      const subWASMStr = ".wasm";
-      const subJSStr = ".js";
-
       var codeUrl = config.codeUrl;
 
       var blobType = "application/octet-stream";
-      if (codeUrl.includes(subWASMStr)) {
+      if (codeUrl.includes(".wasm")) {
         blobType = "application/wasm";
-      } else if (codeUrl.includes(subJSStr)) {
+      } else if (codeUrl.includes(".js")) {
         blobType = "text/javascript";
       }
 
