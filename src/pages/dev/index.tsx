@@ -139,7 +139,7 @@ function Developer() {
         </div>
         <img
           src="/assets/code.png"
-          className="w-full z-0 absolute -bottom-40 aspect-video opacity-55"
+          className="w-full h-full object-cover z-0 absolute bottom-0 opacity-55"
         />
       </div>
     </main>
