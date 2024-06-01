@@ -9,9 +9,13 @@ import { lineWobble } from "ldrs";
 lineWobble.register();
 
 const GamePlay = ({ game, hidden }: { game: GameType; hidden: boolean }) => {
-  const gameFile = game.file.includes("{GAME_ID}")
+  const a = game.file.includes("{GAME_ID}")
     ? game.file.replace("{GAME_ID}", game.id)
     : game.file;
+  const gameFile =
+    a.startsWith("/assets/games/") && a.endsWith("/") && import.meta.env.DEV
+      ? a + "index.html"
+      : a;
   return (
     <div className={`${hidden ? "hidden" : "inline-block"}`}>
       {game.type == "embed" ? (
