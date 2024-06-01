@@ -44,6 +44,10 @@ const pages: Route[] = [
     path: "/dev/get-started",
     title: "Getting Started | nate-games",
   },
+  {
+    path: "/dev/sdk-html5",
+    title: "SDK - HTML5 | nate-games",
+  },
   { path: "dmca", title: "DMCA | nate-games" },
   { path: "games", title: "Games | nate-games" },
   { path: "*", title: "404" },
