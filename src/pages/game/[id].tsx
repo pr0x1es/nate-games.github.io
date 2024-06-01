@@ -62,7 +62,7 @@ function Game() {
                       />
                       <div className="absolute w-full h-full flex flex-col gap-5 justify-center items-center">
                         <img src={game.image} className="rounded-md h-32" />
-                        <h3 className="text-xl">Loading...</h3>
+                        <h3 className="text-xl font-urbanist">{game.title}</h3>
                         <l-line-wobble
                           size="150"
                           stroke="5"
