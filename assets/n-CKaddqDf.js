@@ -1,1 +1,0 @@
-runOnStartup(async t=>{t.addEventListener("beforeprojectstart",()=>n(t))});async function n(t){t.addEventListener("tick",()=>void 0),ns_SDK.loadingComplete()}const e=document.createElement("script");e.src="https://nate-games.github.io/assets/sdk.js";document.body.appendChild(e);
