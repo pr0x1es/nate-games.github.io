@@ -21,4 +21,14 @@
   a {
     @apply text-[#008bff];
   }
+
+  pre {
+    @apply max-w-[75vw];
+  }
+
+  pre > code {
+    @apply text-sm;
+    @apply text-left;
+    @apply rounded;
+  }
 }

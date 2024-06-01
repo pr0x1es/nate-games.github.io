@@ -12,25 +12,28 @@ function GetStarted() {
           <br />
           Start by selecting your game's engine below.
         </p>
-        <section className="border-2 border-dashed rounded border-[#555] inline-flex [&>div]:flex [&>div]:flex-col [&>div]:items-center [&>div]:gap-1 [&>div]:h-[124px] [&>div]:w-[116px] [&>div:hover]:bg-[#303030] [&_h3]:text-base [&_img]:h-14 [&_a]:text-sm [&_a]:mt-2 [&_a:active]:underline">
-          <div className="bg-[#222]">
-            <h3>HTML5</h3>
-            <img src="/assets/html5.png" draggable={false} />
-            <Link to="/dev/sdk-html5">Open &gt;</Link>
-          </div>
-          <div>
-            <h3>Unity</h3>
-            <img src="/assets/unity.png" draggable={false} />
-            <Link to="/dev/sdk-unity">Open &gt;</Link>
-          </div>
-          <div className="bg-[#222]">
-            <h3>Construct 3</h3>
-            <img src="/assets/construct-3.png" draggable={false} />
-            <Link to="/dev/sdk-construct">Open &gt;</Link>
-          </div>
+        <section className="border-2 border-dotted rounded border-[#555] inline-flex [&_div]:flex [&_div]:flex-col [&_div]:justify-center [&_div]:items-center [&_div]:gap-1 [&_div]:h-[116px] [&_div]:w-[112px] [&_div]:text-white [&_div:hover]:bg-[#303030] [&_h3]:text-base [&_img]:h-14">
+          <Link to="/dev/sdk-html5">
+            <div className="bg-[#222]">
+              <h3>HTML5</h3>
+              <img src="/assets/html5.png" draggable={false} />
+            </div>
+          </Link>
+          <Link to="/dev/sdk-unity">
+            <div>
+              <h3>Unity</h3>
+              <img src="/assets/unity.png" draggable={false} />
+            </div>
+          </Link>
+          <Link to="/dev/sdk-construct">
+            <div className="bg-[#222]">
+              <h3>Construct 3</h3>
+              <img src="/assets/construct-3.png" draggable={false} />
+            </div>
+          </Link>
         </section>
 
-        <h2 className="text-2xl font-urbanist mt-2" id="requirements">
+        <h2 className="text-2xl font-urbanist my-2" id="requirements">
           Requirements
         </h2>
         <ul className="text-[#bbb] list-disc text-sm text-left">

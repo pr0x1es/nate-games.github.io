@@ -26,6 +26,12 @@ function Game() {
     }
   }, [id]);
 
+  window.onmessage = function (e) {
+    if (e.data == "ns_SDK: First Frame Ready") {
+      alert("It works!");
+    }
+  };
+
   return (
     <>
       {game ? (
