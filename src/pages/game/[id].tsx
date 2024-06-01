@@ -4,10 +4,14 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Flash } from "react-ruffle";
 import All from "../[...all].tsx";
+import { lineWobble } from "ldrs";
+
+lineWobble.register();
 
 function Game() {
   const [game, setGame] = useState<GameType | null>(null);
-  const gframe = useRef<HTMLDivElement | null>(null);
+  const [loaded, setLoaded] = useState<boolean>(false);
+  const iframe = useRef<HTMLDivElement | null>(null);
   const { id } = useParams();
 
   useEffect(() => {
@@ -26,11 +30,18 @@ function Game() {
     }
   }, [id]);
 
-  window.onmessage = function (e) {
-    if (e.data == "ns_SDK: First Frame Ready") {
-      alert("It works!");
+  useEffect(() => {
+    if (game) {
+      if (game.sdk) {
+        // https://stackoverflow.com/questions/9153445/how-to-communicate-between-iframe-and-the-parent-site
+        window.onmessage = function (e) {
+          if (e.data == "ns_SDK: Loading Complete") {
+            setLoaded(true);
+          }
+        };
+      }
     }
-  };
+  }, [game]);
 
   return (
     <>
@@ -38,18 +49,41 @@ function Game() {
         <main className="flex justify-center items-center mt-24 pb-5">
           <div>
             <div
-              ref={gframe}
-              className="w-auto h-[42rem] aspect-video relative rounded-md mb-2"
+              ref={iframe}
+              className="w-auto h-[42rem] aspect-video overflow-hidden relative rounded-md mb-2"
             >
               {game.type == "embed" ? (
-                <iframe
-                  src={
-                    game.file.includes("{GAME_ID}")
-                      ? game.file.replace("{GAME_ID}", game.id)
-                      : game.file
-                  }
-                  className="w-full h-[calc(100%-2.75rem)] absolute top-0 left-0"
-                ></iframe>
+                <>
+                  {game.sdk && loaded == false ? (
+                    <>
+                      <img
+                        src={game.image}
+                        className="absolute object-cover h-full w-full blur-xl opacity-30"
+                      />
+                      <div className="absolute w-full h-full flex flex-col gap-5 justify-center items-center">
+                        <img src={game.image} className="rounded-md h-32" />
+                        <h3 className="text-xl">Loading...</h3>
+                        <l-line-wobble
+                          size="150"
+                          stroke="5"
+                          bg-opacity="0.1"
+                          speed="1.5"
+                          color="white"
+                        ></l-line-wobble>
+                      </div>
+                    </>
+                  ) : (
+                    <></>
+                  )}
+                  <iframe
+                    src={
+                      game.file.includes("{GAME_ID}")
+                        ? game.file.replace("{GAME_ID}", game.id)
+                        : game.file
+                    }
+                    className={`${game.sdk ? (loaded ? "inline-block" : "hidden") : "inline-block"} w-full h-[calc(100%-2.75rem)] absolute top-0 left-0`}
+                  ></iframe>
+                </>
               ) : (
                 <Flash
                   src={
@@ -79,11 +113,11 @@ function Game() {
                 </Link>
                 <button
                   onMouseDown={() => {
-                    if (gframe.current) {
+                    if (iframe.current) {
                       if (document.fullscreenElement) {
                         document.exitFullscreen();
                       } else {
-                        gframe.current.requestFullscreen();
+                        iframe.current.requestFullscreen();
                       }
                     }
                   }}

@@ -5,6 +5,7 @@ interface GameType {
   file: string;
   type: "embed" | "flash";
   title: string;
+  sdk?: boolean;
   image: string;
 }
 
