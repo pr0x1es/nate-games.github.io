@@ -4,9 +4,9 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Flash } from "react-ruffle";
 import All from "../[...all].tsx";
-import { lineWobble } from "ldrs";
+import { ring2 } from "ldrs";
 
-lineWobble.register();
+ring2.register();
 
 const GamePlay = ({ game, hidden }: { game: GameType; hidden: boolean }) => {
   const a = game.file.includes("{GAME_ID}")
@@ -105,7 +105,7 @@ function Game() {
                     }
                     className="absolute object-cover h-full w-full blur-2xl scale-125 opacity-25"
                   />
-                  <div className="absolute w-full h-full flex flex-col gap-5 justify-center items-center">
+                  <div className="absolute w-full h-full flex flex-col gap-4 justify-center items-center">
                     <img
                       src={
                         game.data.image.includes("{GAME_ID}")
@@ -115,32 +115,30 @@ function Game() {
                       className=" rounded-3xl h-32"
                     />
                     <h3 className="text-xl font-urbanist">{game.data.title}</h3>
-                    {game.started ? (
-                      <>
-                        {!game.loaded && (
-                          <l-line-wobble
-                            size="150"
-                            stroke="5"
-                            bg-opacity="0.1"
-                            speed="1.5"
-                            color="white"
-                          ></l-line-wobble>
-                        )}
-                      </>
-                    ) : (
-                      <button
-                        className="px-3.5 py-2 transition rounded-lg text-md text-sm bg-blue-500 hover:bg-blue-600 focus:ring-4"
-                        onClick={() => {
-                          if (game.data.sdk) {
-                            setGame({ ...game, started: true });
-                          } else {
-                            setGame({ ...game, started: true, loaded: true });
-                          }
-                        }}
-                      >
-                        Play
-                      </button>
-                    )}
+                    <button
+                      className="px-3.5 py-2.5 flex gap-2 transition rounded-lg text-md text-sm bg-blue-500 hover:bg-blue-600 active:ring-4 disabled:bg-blue-500/85"
+                      {...(game.started && !game.loaded
+                        ? { disabled: true }
+                        : {})}
+                      onClick={() => {
+                        if (game.data.sdk) {
+                          setGame({ ...game, started: true });
+                        } else {
+                          setGame({ ...game, started: true, loaded: true });
+                        }
+                      }}
+                    >
+                      Play{" "}
+                      {game.started && !game.loaded && (
+                        <l-ring-2
+                          size="20"
+                          stroke="4"
+                          bg-opacity="0.1"
+                          speed="0.75"
+                          color="white"
+                        ></l-ring-2>
+                      )}
+                    </button>
                   </div>
                 </>
               )}
