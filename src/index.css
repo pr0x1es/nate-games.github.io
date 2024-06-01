@@ -23,7 +23,7 @@
   }
 
   pre {
-    @apply max-w-[75vw];
+    @apply max-w-[40vw];
   }
 
   pre > code {

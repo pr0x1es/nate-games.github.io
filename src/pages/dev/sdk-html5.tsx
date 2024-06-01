@@ -8,7 +8,7 @@ function SDK_HTML5() {
   }, []);
   return (
     <main className="flex justify-center items-center mt-40">
-      <div className="max-w-[85vw] xl:max-w-[75vw] text-left inline-block">
+      <div className="max-w-[75vw] xl:max-w-[50vw] text-left inline-block">
         <h2 className="text-2xl mb-2">SDK for HTML5</h2>
         <p className="text-sm max-w-[30vw] text-[#bbb] mb-2">
           Add our script to handle the SDK in the documents head or end of body.
