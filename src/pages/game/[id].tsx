@@ -116,7 +116,7 @@ function Game() {
                     />
                     <h3 className="text-xl font-urbanist">{game.data.title}</h3>
                     <button
-                      className="px-3.5 py-2.5 flex gap-2 transition rounded-lg text-md text-sm bg-blue-500 hover:bg-blue-600 active:ring-4 disabled:bg-blue-500/85"
+                      className="w-[3.5rem] disabled:w-20 px-1.5 py-2.5 flex justify-center items-center gap-2 transition-all duration-150 rounded-lg text-md text-sm bg-blue-500 hover:bg-blue-600"
                       {...(game.started && !game.loaded
                         ? { disabled: true }
                         : {})}
