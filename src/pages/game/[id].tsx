@@ -8,35 +8,58 @@ import { lineWobble } from "ldrs";
 
 lineWobble.register();
 
+const GamePlay = ({ game, hidden }: { game: GameType; hidden: boolean }) => {
+  const gameFile = game.file.includes("{GAME_ID}")
+    ? game.file.replace("{GAME_ID}", game.id)
+    : game.file;
+  return (
+    <div className={`${hidden ? "hidden" : "inline-block"}`}>
+      {game.type == "embed" ? (
+        <iframe
+          src={gameFile}
+          className="w-full h-[calc(100%-2.75rem)] absolute top-0 left-0"
+        ></iframe>
+      ) : (
+        <Flash
+          src={gameFile}
+          className="h-[calc(100%-2.75rem)] w-full absolute left-0 top-0"
+          config={{
+            autoplay: "on",
+            unmuteOverlay: "hidden",
+            contextMenu: "off",
+            preloader: false,
+            warnOnUnsupportedContent: false,
+          }}
+        ></Flash>
+      )}
+    </div>
+  );
+};
 function Game() {
-  const [game, setGame] = useState<GameType | null>(null);
-  const [loaded, setLoaded] = useState<boolean>(false);
+  const [game, setGame] = useState<{
+    loaded: boolean;
+    started: boolean;
+    data: GameType;
+  } | null>(null);
   const iframe = useRef<HTMLDivElement | null>(null);
   const { id } = useParams();
 
   useEffect(() => {
-    const results = games.find((g) => g.id === id);
+    const results = games.find((g) => g.id == id);
     if (results) {
-      setGame({
-        ...results,
-        ...(import.meta.env.PROD == false &&
-        results.file.startsWith("/assets/games/") &&
-        results.file.endsWith("/")
-          ? { file: results.file + "index.html" }
-          : { file: results.file }),
-      });
+      setGame({ loaded: false, started: false, data: results });
     } else {
       setGame(null);
     }
   }, [id]);
 
   useEffect(() => {
-    if (game) {
-      if (game.sdk) {
+    if (game && game.data) {
+      if (game.data.sdk) {
         // https://stackoverflow.com/questions/9153445/how-to-communicate-between-iframe-and-the-parent-site
         window.onmessage = function (e) {
           if (e.data == "ns_SDK: Loading Complete") {
-            setLoaded(true);
+            setGame({ ...game, loaded: true });
           }
         };
       }
@@ -52,54 +75,70 @@ function Game() {
               ref={iframe}
               className="w-auto h-[42rem] aspect-video overflow-hidden relative rounded-md mb-2"
             >
-              {game.type == "embed" ? (
+              {game.started && (
                 <>
-                  {game.sdk && loaded == false ? (
-                    <>
-                      <img
-                        src={game.image}
-                        className="absolute object-cover h-full w-full blur-xl opacity-30"
-                      />
-                      <div className="absolute w-full h-full flex flex-col gap-5 justify-center items-center">
-                        <img src={game.image} className="rounded-md h-32" />
-                        <h3 className="text-xl font-urbanist">{game.title}</h3>
-                        <l-line-wobble
-                          size="150"
-                          stroke="5"
-                          bg-opacity="0.1"
-                          speed="1.5"
-                          color="white"
-                        ></l-line-wobble>
-                      </div>
-                    </>
+                  {game.loaded && !game.data.sdk ? (
+                    <GamePlay game={game.data} hidden={false} />
                   ) : (
-                    <></>
+                    <>
+                      {game.data.sdk && (
+                        <GamePlay
+                          game={game.data}
+                          hidden={game.loaded ? false : true}
+                        />
+                      )}
+                    </>
                   )}
-                  <iframe
-                    src={
-                      game.file.includes("{GAME_ID}")
-                        ? game.file.replace("{GAME_ID}", game.id)
-                        : game.file
-                    }
-                    className={`${game.sdk ? (loaded ? "inline-block" : "hidden") : "inline-block"} w-full h-[calc(100%-2.75rem)] absolute top-0 left-0`}
-                  ></iframe>
                 </>
-              ) : (
-                <Flash
-                  src={
-                    game.file.includes("{GAME_ID}")
-                      ? game.file.replace("{GAME_ID}", game.id)
-                      : game.file
-                  }
-                  className="h-[calc(100%-2.75rem)] w-full absolute left-0 top-0"
-                  config={{
-                    autoplay: "on",
-                    unmuteOverlay: "hidden",
-                    contextMenu: "off",
-                    preloader: false,
-                    warnOnUnsupportedContent: false,
-                  }}
-                ></Flash>
+              )}
+              {!game.loaded && (
+                <>
+                  <img
+                    src={
+                      game.data.image.includes("{GAME_ID}")
+                        ? game.data.image.replace("{GAME_ID}", game.data.id)
+                        : game.data.image
+                    }
+                    className="absolute object-cover h-full w-full blur-2xl scale-125 opacity-25"
+                  />
+                  <div className="absolute w-full h-full flex flex-col gap-5 justify-center items-center">
+                    <img
+                      src={
+                        game.data.image.includes("{GAME_ID}")
+                          ? game.data.image.replace("{GAME_ID}", game.data.id)
+                          : game.data.image
+                      }
+                      className=" rounded-3xl h-32"
+                    />
+                    <h3 className="text-xl font-urbanist">{game.data.title}</h3>
+                    {game.started ? (
+                      <>
+                        {!game.loaded && (
+                          <l-line-wobble
+                            size="150"
+                            stroke="5"
+                            bg-opacity="0.1"
+                            speed="1.5"
+                            color="white"
+                          ></l-line-wobble>
+                        )}
+                      </>
+                    ) : (
+                      <button
+                        className="px-3.5 py-2 transition rounded-lg text-md text-sm bg-blue-500 hover:bg-blue-600 focus:ring-4"
+                        onClick={() => {
+                          if (game.data.sdk) {
+                            setGame({ ...game, started: true });
+                          } else {
+                            setGame({ ...game, started: true, loaded: true });
+                          }
+                        }}
+                      >
+                        Play
+                      </button>
+                    )}
+                  </div>
+                </>
               )}
               <div className="w-full h-[2.75rem] text-left flex items-center justify-start absolute bottom-0 left-0 bg-[#111] z-10 overflow-hidden">
                 <Link to="/">
@@ -133,7 +172,7 @@ function Game() {
               </div>
             </div>
             <a
-              href={`https://github.com/nate-games/nate-games.github.io/discussions/new?category=bug-report&title=${game.title} - id@${game.id}`}
+              href={`https://github.com/nate-games/nate-games.github.io/discussions/new?category=bug-report&title=${game.data.title} - id@${game.data.id}`}
               target="_blank"
             >
               <button className="cursor-pointer text-sm transition-all duration-75 bg-[#222] text-white px-4 py-2 rounded-md border-[#111] border-b-[6px] hover:bg-[#252525] hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[0px] active:translate-y-[2px]">
